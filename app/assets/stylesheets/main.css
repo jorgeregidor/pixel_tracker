@@ -7,6 +7,11 @@ body a:hover
  text-decoration:none ; 
 } 
 
+.body-content{
+	max-width: 1048px;
+	margin: 30px auto;
+}
+
 .text-align-center{
 	text-align: center;
 }
