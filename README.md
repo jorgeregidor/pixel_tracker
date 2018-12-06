@@ -1,24 +1,49 @@
-# README
+# Pixel_tracker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Is an application that create pixel trakers and check them:
 
-* Ruby version
+## Installation
 
-* System dependencies
+### Characteristics
 
-* Configuration
+* Ruby 2.3.1
+* Rails 5.1.6
+* SQLite
+* Rspec 3.8
+* Boostrap v4.1.3
 
-* Database creation
 
-* Database initialization
+## Usage
 
-* How to run the test suite
+```
+$ git clone https://github.com/jorgeregidor/pixel_tracker
+$ cd pixel_tracker
 
-* Services (job queues, cache servers, search engines, etc.)
+$ bundle install
+$ rails db:create
+$ rails db:migrate
 
-* Deployment instructions
+```
 
-* ...
+## Run
+```
+$ rails s
+```
+Open "localhost:3000"
+
+## Test
+
+```
+$ bundle exec rspec
+```
+
+## UX
+
+- Do you need to create a new user
+
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
