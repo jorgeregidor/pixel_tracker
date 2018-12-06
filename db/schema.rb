@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181206190036) do
+ActiveRecord::Schema.define(version: 20181206191826) do
+
+  create_table "conversions", force: :cascade do |t|
+    t.string "ip"
+    t.string "user_agen"
+    t.integer "pixel_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pixel_id", "ip", nil], name: "index_conversions_on_pixel_id_and_ip_and_user_agent", unique: true
+    t.index ["pixel_id"], name: "index_conversions_on_pixel_id"
+  end
+
+  create_table "pixels", force: :cascade do |t|
+    t.string "name"
+    t.integer "provider_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider_id"], name: "index_pixels_on_provider_id"
+    t.index [nil, "name"], name: "index_pixels_on_providers_id_and_name", unique: true
+  end
 
   create_table "providers", force: :cascade do |t|
     t.string "name"
