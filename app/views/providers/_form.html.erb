@@ -1,11 +1,11 @@
-<%= form_with(model: provider, local: true) do |form| %>
+<%= form_with(model: provider, local: true) do |f| %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :provider_name %>
-  </div>
+				<div class="form-group">
+          <%= f.label :name %><br />
+          <%= f.text_field :name,  id: :provider_name, class: "form-control" %>
+        </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+        <div class="actions">
+          <%= f.submit "Submit", class: "btn btn-primary btn-block"%>
+        </div>
+      <% end %>
