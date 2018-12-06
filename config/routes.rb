@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post 'pixels/new', to: 'pixels#new'
+  post 'pixels', to: 'pixels#create'
 	get 'images/conversion', to: 'pixels#converion'
 
   resources :providers, except: [:index]
