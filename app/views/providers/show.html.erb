@@ -3,9 +3,15 @@
 <h1><%= @provider.name %></h1>
 
 
+ <p> <strong>URL new Pixel:</strong> <%= root_url %>pixel </p>
+ <p> <strong>Method:</strong> POST </p>
+ <p> <strong>Json:</strong> {"pixel": { "name": new_name, "provider_id": <%= @provider.id %>}} </p>
+</p>
+
+<br>
 <%= link_to 'Edit', edit_provider_path(@provider) %> |
 <%= link_to 'Back', root_path %>
-
+<br>
 <h3>Pixels</h3>
 
 <table class="table table-striped">
@@ -18,7 +24,7 @@
   </thead>
 
   <tbody>
-    <% @provider.pixels.each do |pixel| %>
+    <% @pixels.each do |pixel| %>
       <tr>
         <td><%= pixel.name %></td>
         <td><%= root_url %>images/conversion.png?trackid=<%= pixel.id %></td>
@@ -27,3 +33,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate @pixels, previous_label: "Before", next_label: "Next", class: "apple_pagination" %>

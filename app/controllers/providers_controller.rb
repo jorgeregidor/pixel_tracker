@@ -6,12 +6,13 @@ class ProvidersController < ApplicationController
   # GET /providers
   # GET /providers.json
   def index
-    @providers = current_user.providers.all
+    @providers = current_user.providers.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /providers/1
   # GET /providers/1.json
   def show
+    @pixels = @provider.pixels.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /providers/new
