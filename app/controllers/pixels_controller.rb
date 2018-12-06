@@ -16,8 +16,18 @@ class PixelsController < ApplicationController
   end
 
   # GET images/conversion
+  # Params: trackerid = pixel_id
+	# Return: public.conversion.png
   # Create a new conversion por a pixel
   def conversion
+  	@conversion = Conversion.new(pixel_id: params[:trackid], ip: request.ip, user_agent: request.user_agent)
+
+  	if @conversion.save
+    	send_file 'public/conversion.png', :type => 'image/png', :disposition => 'inline'
+    else
+    	head :no_content
+  	end
+
   end
 
   private

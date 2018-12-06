@@ -1,10 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @provider.name %>
-</p>
+<h1><%= @provider.name %></h1>
 
 
 <%= link_to 'Edit', edit_provider_path(@provider) %> |
 <%= link_to 'Back', root_path %>
+
+<h3>Pixels</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>URL</th>
+      <th>Conversions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @provider.pixels.each do |pixel| %>
+      <tr>
+        <td><%= pixel.name %></td>
+        <td><%= root_url %>images/conversion.png?trackid=<%= pixel.id %></td>
+        <td><%= pixel.conversions.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
