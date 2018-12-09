@@ -1,0 +1,19 @@
+<h3>Pixels</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>URL</th>
+      <th>Conversions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% pixels.each do |pixel| %>
+			<%= render 'pixels/pixel', pixel: pixel %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate pixels, previous_label: "Before", next_label: "Next", class: "apple_pagination" %>
