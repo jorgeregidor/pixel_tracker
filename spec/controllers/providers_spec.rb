@@ -97,6 +97,46 @@ RSpec.describe ProvidersController do
 	    
 	  end
 
+	  describe "Not logged" do
+			
+			it "index redirect to login" do
+		     get :index
+		     expect(response).to redirect_to new_user_session_path
+		  end
+
+		  it "show redirect to login" do
+		     get :show, params: {id: 1}
+		     expect(response).to redirect_to new_user_session_path
+		  end
+
+		  it "create redirect to login" do
+		     post :create
+		     expect(response).to redirect_to new_user_session_path
+		  end
+
+		  it "new redirect to login" do
+		     get :new
+		     expect(response).to redirect_to new_user_session_path
+		  end
+
+		  it "edit redirect to login" do
+		     get :edit, params: {id: 1}
+		     expect(response).to redirect_to new_user_session_path
+		  end
+
+		  it "update redirect to login" do
+		     put :update, params: {id: 1}
+		     expect(response).to redirect_to new_user_session_path
+		  end
+
+		  it "destroy redirect to login" do
+		     delete :destroy, params: {id: 1}
+		     expect(response).to redirect_to new_user_session_path
+		  end
+
+
+		end
+
 	  
 	end
 end

@@ -19,6 +19,12 @@ RSpec.describe PixelsController do
 		      expect(response.status).to eq(200)
 		    end
 
+		    it "correct response url" do
+		      post :create ,params: {pixel: {name: "test", provider_id: @provider.id}}
+		      resp = JSON.parse(@response.body)
+		      expect(resp["url"]).to eq("#{root_url}images/conversion.png?trackid=#{assigns(:pixel).id}")
+		    end
+
 		    it "fail and redirect to new" do
 		      post :create ,params: {pixel: {name: @pixel.name, provider_id: @provider.id}}
 		      expect(response.status).to eq(400)
